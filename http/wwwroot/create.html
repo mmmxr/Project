@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <head>
+        <style type="text/css">
+/* 标题 */
+/*.header {
+    padding: 70px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+}*/
+        * {
+            box-sizing: border-box;
+        }
+
+        /* body 样式 */
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        /* 标题 */
+        .header {
+            padding: 60px;
+            text-align: center;
+            background: #1abc9c;
+            color: white;
+        }
+
+        /* 标题字体加大 */
+        .header h1 {
+            font-size: 40px;
+        }
+
+
+        button
+        {
+            width:60px;
+            height:30px;
+            color:black ;
+            font-family:"YouYuan";
+            background-color:#1abc9c;
+            -moz-box-shadow: 10px 10px 5px #888888; /* 老的 Firefox */
+            box-shadow: 10px 10px 5px #888888;
+
+        }
+
+        </style>
+    </head>
+
+    <script>
+
+function tz(){
+        alert('保存成功!');
+        window.location.href='index.html';
+}
+
+    </script>
+    <body> 
+ 
+<div class="header">
+    <h1>Create a Memo!</h1>
+    <form action="cgi/echo_server" method="POST">
+        Date: <input type="date" name="date">
+        <br></br>
+        <textarea  rows="20" cols="100" style="resize: none" name="route"></textarea>
+        <br></br>
+        <button onclick="tz()">submit</button>
+</div>
+    </form>
+</body>  
+</html>
