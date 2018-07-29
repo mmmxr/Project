@@ -11,6 +11,37 @@
           padding: 0;  
           font-weight: 300;  
         }  
+        body {  
+          font-family: 'Source Sans Pro', sans-serif;  
+          color: white;  
+          font-weight: 300;  
+        }  
+        body ::-webkit-input-placeholder {  
+          /* WebKit browsers */  
+          font-family: 'Source Sans Pro', sans-serif;  
+          color: white;  
+          font-weight: 300;  
+        }  
+        body :-moz-placeholder {  
+          /* Mozilla Firefox 4 to 18 */  
+          font-family: 'Source Sans Pro', sans-serif;  
+          color: white;  
+          opacity: 1;  
+          font-weight: 300;  
+        }  
+        body ::-moz-placeholder {  
+          /* Mozilla Firefox 19+ */  
+          font-family: 'Source Sans Pro', sans-serif;  
+          color: white;  
+          opacity: 1;  
+          font-weight: 300;  
+        }  
+        body :-ms-input-placeholder {  
+          /* Internet Explorer 10+ */  
+          font-family: 'Source Sans Pro', sans-serif;  
+          color: white;  
+          font-weight: 300;  
+        }  
         .wrapper {  
           background: #50a3a2;  
           background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);  
@@ -207,35 +238,50 @@
             text-decoration: none;  
             color: #53e3a6;  
         }  
-        /* 导航 */
-        .navbar {
-            overflow: hidden;
-        }
-
-        /* 导航栏样式 */
-        .navbar a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 10px 20px;
-            text-decoration: none;
-}
-
     </style>  
-
-
-    <body>  
+    <script type="text/javascript">  
+          
+         $("#login-button").click(function(event){  
+                 event.preventDefault();  
+               
+             $('form').fadeOut(500);  
+             $('.wrapper').addClass('form-success');  
+        });  
+        //验证信息填写是否有误  
+        function check()  
+        {  
+            if(form.username.value.length<6 || form.username.value.length>16)  
+            {  
+                alert('用户名不合法！请输入6-16位用户名');  
+                form.username.focus();  
+                return false;  
+            }  
+            if(form.pass.value.length<6 ||form.pass.value.length>16)  
+            {  
+                alert('密码不合法！请输入6-16位密码');  
+                form.username.focus();  
+                return false;  
+            }  
+            if(form.pass.value != form.pass2.value)//判断两次输入的密码是否一致  
+            {  
+                alert("两次输入的密码不一致！");  
+                form.pass.focus();  
+                return false;  
+            }  
+        }  
+    </script>  
+</head>  
+<body>  
     <div class="wrapper">  
         <div class="container">  
-            <h1 style="font-size:60px;color:white" >welcome my memo!</h1>  
-
-            <form>  
-                <div class="navbar">
-                    <a href="create.html">create</a>  
-                    <a href="delete.html">delete</a>  
-                    <a href="search.html">search</a>  
-                </div>
+            <h1 style="font-size:60px">welcome my memo!</h1>  
+              
+            <form action='cgi/echo_register' method='post' onSubmit="return check();">  
+                <input type="text" placeholder="username">
+                <input type="password" name='pass'  placeholder="password">  
+                <input type="password" name='pass2' placeholder="confirm your password">  
+                <input type="phonenumber" name='phone' placeholder="phone number">  
+                <button type="submit" id="register-button" value='submit' name='submit' style='center'>Register</button>  
             </form>  
         </div>  
           
@@ -252,6 +298,5 @@
             <li></li>  
         </ul>  
     </div>  
-    </body>  
-</html>
-
+</body>  
+</html>  

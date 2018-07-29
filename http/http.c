@@ -14,7 +14,7 @@
 #include <pthread.h>
 
 #define MAX 1024
-#define HOME_PAGE "index.html"
+#define HOME_PAGE "web_index.html"
 
 static void Usage(const char* proc)
 {
